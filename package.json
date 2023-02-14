@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/pocketclint/TeamPG#readme",
   "dependencies": {
-    "inquirer": "^8.2.4",
-    "jest": "^29.4.1"
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^29.4.2"
   }
 }
