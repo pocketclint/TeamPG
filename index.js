@@ -142,24 +142,26 @@ function completeTeam() {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${employees[0]}</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/src/style.css">
         </head>
         
         <body>
         
         <header>
             <h1>${employees[0]}</h1>
-        </header>`
+        </header>
+        <div class="container">`
     htmlArray.push(htmlStart);
 
     for (let i = 1; i < employees.length; i++) {
         let employee = `
-        <div class="card-top">
-            <h2>${employees[i].name}</h2>
-            <h3>${employees[i].role}</h3>
+        <div class="card">
+            <div class="card-top">
+                <h2>${employees[i].name}</h2>
+                <h3>${employees[i].role}</h3>
             </div>
             <div class="card-bottom">
-            <p>ID: ${employees[i].id}</p>
+                <p>ID: ${employees[i].id}</p>
             <p>Email: <a href="mailto:${employees[i].email}">${employees[i].email}</a></p>
         `
         if (employees[i].officeNumber) {
@@ -171,13 +173,17 @@ function completeTeam() {
         if (employees[i].school) {
             employee += `<p>School: ${employees[i].school}</p>`
         }
-        employee += `</div>`
+        employee += `
+            </div>
+        </div>`
         htmlArray.push(employee);
     }
 
     const htmlEnd = `
+    </div>
     </body>
     </html>`
+    
     htmlArray.push(htmlEnd);
 
     fs.writeFile('./dist/index.html', htmlArray.join(''), function (err) {
